@@ -296,7 +296,7 @@ $('#add-form').submit(function(event) {
     });
 
 
-
+ 
 // text effect
 
 
