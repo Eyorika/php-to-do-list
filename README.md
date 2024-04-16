@@ -17,7 +17,7 @@ I added the following functionality:
 ## Fixed issue with duplicate task addition
 ## Implemented loading animation when tasks are being added** **Resolved issue with tasks not displaying after page reload
 ## Enhanced text animation using custom keyframe animation for main-section
-## get_todos.php is a PHP script responsible for fetching the list of tasks (todos) from the database and returning them as a JSON response.
+**get_todos.php is a PHP script responsible for fetching the list of tasks (todos) from the database and returning them as a JSON response.**
 Database name: to_do_list_db
 To login :
 username: admin
