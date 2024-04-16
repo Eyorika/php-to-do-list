@@ -3,7 +3,7 @@ PHP (PDO), MYSQL and JQuery AJAX Full Project from Scratch.
 
 I added the following functionality:
 
-__Implemented basic structure and styling for the ToDo List application
+ _Implemented basic structure and styling for the ToDo List application
  Added functionality to add tasks with priority and due date
  Implemented task ~~removal functionality~~
  Added task **completion functionality**
