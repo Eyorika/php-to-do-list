@@ -25,4 +25,4 @@ username: admin
 password: admin**
 
 
-Credit : [@codingWithElias](https://github.com/codingWithElias) : Thank You!!
+Credit : [@codingWithElias](https://github.com/codingWithElias) Thank You!!
