@@ -1,5 +1,51 @@
+
+
+@keyframes Blazing {
+  0%   { text-shadow: 0 3px 20px rgb(53, 6, 6), 0 0 20px rgb(17, 2, 2),
+    0 -15px rgb(236, 236, 234),
+    0 0 0 yellow,
+    0 0 5px yellow,
+    -2px -5px 5px rgb(76, 92, 55),
+    4px -10px 10px yellow; }
+  25%   { text-shadow: 0 3px 20px rgb(48, 3, 3), 0 0 30px rgb(54, 7, 7),
+    0 20px orange,
+    0 0 5px yellow,
+    -2px -5px 5px yellow,
+    3px -10px 10px yellow,
+    -4px -15px 20px yellow; }
+  50%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 -5px 10px orange,
+    -2px -5px 5px yellow,
+    3px -10px 10px yellow,
+    -4px -15px 20px yellow,
+    2px -20px 30px rgba(255,255,0,0.5); }
+  75%   { text-shadow: 0 3px 20px red, 0 0 20px red,
+    0 -5px 10px orange,
+    3px -5px 5px yellow,
+    -4px -10px 10px yellow,
+    2px -20px 30px rgba(255,255,0,0.5),
+    0px -25px 40px rgba(255,255,0,0)}
+  100%   { text-shadow: 10px 20px red, 0 0 20px red,
+     0 10px orange,
+     0 0 yellow,
+     0 5px yellow,
+    -2px 5px 5px rgb(255, 255, 251),
+    
+    4px -10px 10px yellow;     font-size: 0.1rem;
+    color: #304d2c;
+    display: none;
+}
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 body {
-    background: #34495e;
+    background-color: #0e0401;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
   
   * {
@@ -7,19 +53,89 @@ body {
     margin: 0px;
     box-sizing: border-box;
   }
+
+.div{
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.div:first-of-type{
+  animation: showup 7s infinite;
+
+
+}
   
+.div:last-of-type {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+.div:last-of-type span {
+  margin-left:-355px;
+  animation: slidein 7s infinite;
+}
+.p-1{
+   
+    font-size:12px;
+    color:#b61919;
+    margin-top:20px;
+  
+}
   .main-section {
-    background: transparent;
+    padding: 5px;
+    background: hsl(17, 91%, 43%);
     max-width: 500px;
-    width: 90%;
+    width: 100%;
+    display:flexbox;
+    height: 100vh;
     height: 500px;
-    margin: 30px auto;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    position: absolute;
     border-radius: 10px;
   }
+
+
+
+  .text-effect {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    justify-content: center;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.text-effect p {
+  color: #fcfcfc;
+    font-size: 10px;
+    font-weight: 20px bold;
+    margin: 20px 0;
+    opacity: 0;
+    animation: 2s Blazing infinite alternate linear;
+
+}
+.fade-in {
+  opacity: 1;
+}
+.animated-text {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
   
+  margin-right: 20px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
   .add-section {
     width: 100%;
-    background: #fff;
+    background: #da4517;
     margin: 0px auto;
     padding: 10px;
     border-radius: 5px;
@@ -43,17 +159,17 @@ body {
     margin: 0px auto;
     border: none;
     outline: none;
-    background: #0088FF;
+    background: #0059ff;
     color: #fff;
     font-family: sans-serif;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
   }
-  
+ 
   .add-section button:hover {
-    box-shadow: 0 2px 2px 0 #ccc, 0 2px 3px 0 #ccc;
-    opacity: 0.7;
+    box-shadow: 0 2px 2px 1px #24b9e6, 0 -2px 3px 0 #ccc;
+    opacity: 2;
   }
   
   .add-section button span {
@@ -63,6 +179,9 @@ body {
     width: 18px;
     height: 18px;
   }
+ 
+
+
   
   #errorMes {
     display: block;
@@ -76,17 +195,18 @@ body {
   
   .show-todo-section {
     width: 100%;
-    background: #fff;
+    height: auto;
+    background: #dc3545;
     margin: 30px auto;
-    padding: 10px;
     border-radius: 5px;
   }
   
   .todo-item {
-    width: 95%;
+    background: #c4bfba;
+    width: 100%;
     margin: 10px auto;
     padding: 20px 10px;
-    box-shadow: 0 4px 8px 0 #ccc, 0 6px 20px 0 #ccc;
+    box-shadow: -2px 1px  #ccc, 2px 1px 2px 1px #f2dede;
     border-radius: 5px;
   }
   
@@ -114,7 +234,7 @@ body {
     width: 20px;
     height: 20px;
     font-family: sans-serif;
-    color: rgb(139, 97, 93);
+    color: rgb(247, 22, 2);
     text-decoration: none;
     text-align: right;
     padding: 0px 5px 8px 0px;
@@ -131,6 +251,7 @@ body {
   .checked {
     color: #999 !important;
     text-decoration: line-through;
+    text-decoration-color: #08f773;
   }
   
   .todo-item input {
@@ -143,3 +264,258 @@ body {
     text-align: center;
     color: #cccc;
   }
+
+ 
+
+.signup-section h2 {
+    text-decoration: underline;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(0, 22, 15);
+}
+
+.signup-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px; /* Match padding with input fields */
+    background-color: #bbe71b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+
+.signup-link {
+  
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #ffffff;
+  padding: 5px;
+  background-color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration:wavy;
+  color: #08f773;
+  background-color: #0056b3;
+
+  transition: ease-in 1s;
+}
+
+
+.login-link a{
+  text-decoration: underline;
+  color: #110000;
+  font-size: larger;
+}
+.login-link a:hover{
+  text-decoration:wavy;
+  color: #1d7444;
+ 
+  transition: ease-in 1s;
+}
+.sign-out-section {
+  text-align: right;
+  margin-top: 10px;
+}
+.sign-out-section a:hover{
+  color: #c82333;
+  background-color: #502b2b;
+}
+.sign-out-button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: 2px;
+  border-radius: 5px;
+  font-size: 5px;
+  cursor: pointer;
+  transition:ease-in-out 3s;
+}
+.sign-out-section a{
+  color: #fffefe;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #4d3235;
+}
+.sign-out-button:hover {
+  background-color: #c82333;
+}
+
+/* loadimg*/
+
+
+.empty-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-content p {
+  margin-bottom: 10px;
+}
+
+.add-task-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+.login-section {
+  position: relative;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-section h2 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+.signup-section {
+  position: relative;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.signup-section h2 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#btn:hover {
+  background-color: #0056b3;
+}

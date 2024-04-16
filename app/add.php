@@ -21,4 +21,6 @@ if(isset($_POST['title'])){
     }
 }else {
     header("Location: ../index.php?mess=error");
+
+    
 }
