@@ -54,7 +54,7 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/style.css">
 <style>
 
-        /* Custom styling for select element */
+        /* CSS */
         .custom-select {
         font-size: 16px;
         color: #495057; 
@@ -66,9 +66,9 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     .custom-select:focus {
-        border-color: #80bdff; /* Border color when focused */
-        outline: 0; /* Remove default focus outline */
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add focus shadow */
+        border-color: #80bdff; 
+        outline: 0; 
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
     }
 
     .spinner {
@@ -171,7 +171,7 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <input type="checkbox" data-todo-id="<?php echo $todo['id']; ?>" class="check-box" />
             <h2 contenteditable="true" class="editable"><?php echo $todo['title'] ?></h2>
         <?php } ?>
-        <p>Priority: <?php echo $todo['priority']; ?></p> <!-- Display priority -->
+        <p>Priority: <?php echo $todo['priority']; ?></p> 
         <br>
         <small>created: <?php echo $todo['date_time'] ?></small> 
     </div>
@@ -184,11 +184,11 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $('.add-task-button').click(function() {
-    $('#title').blur(); // Remove focus from the input field
+    $('#title').blur(); 
 });
 
     $(document).ready(function() {
-        // Remove todo item
+
         $(document).on('click', '.remove-to-do', function() {
             const id = $(this).attr('id');
             
@@ -204,7 +204,6 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             );
         });
 
-        // Check/uncheck todo item
         $(document).on('change', '.check-box', function() {
             const id = $(this).data('todo-id');
             
@@ -227,49 +226,41 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
        
 
-
-        // Function to fetch and update todo list
         function updateTodoList() {
             $.get("app/get_todos.php", function(data) {
-                $(".show-todo-section").html(data); // Update the HTML content with the fetched data
+                $(".show-todo-section").html(data); 
             });
         }
 
-        // Call the updateTodoList function when the page loads
         updateTodoList();
 
-        // Validate form inputs
         $('#add-form').submit(function() {
             var title = $('#title').val().trim();
             var priority = $('#priority').val();
             
             if (!title || !priority) {
                 $('.feedback-message').text('Please fill out all required fields');
-                return false; // Prevent form submission
+                return false; 
             }
         });
 
-        // Sign out button click event
         $('.sign-out-button').click(function() {
-            // Redirect to logout page or perform logout action
             window.location.href = 'logout.php';
         });
     });
 
 
-    // Display spinner initially
 document.getElementById('spinner').style.display = 'block';
-document.getElementById('no-tasks-msg').style.display = 'none'; // Hide no tasks message initially
+document.getElementById('no-tasks-msg').style.display = 'none'; 
 
-// Fetch todos
 fetchTodos();
 
 function fetchTodos() {
     $.get("app/get_todos.php", function(data) {
-        $(".show-todo-section").html(data); // Update the HTML content with the fetched data
-        // Hide spinner once tasks are loaded
+        $(".show-todo-section").html(data); 
+
         document.getElementById('spinner').style.display = 'none';
-        // Show no tasks message if there are no tasks
+
         if (data.trim() === '') {
             document.getElementById('no-tasks-msg').style.display = 'block';
         } else {
@@ -278,35 +269,28 @@ function fetchTodos() {
     });
 }
 
-// Add task form submission
 $('#add-form').submit(function(event) {
-        event.preventDefault(); // Prevent default form submission behavior
+        event.preventDefault(); 
         var priority = $('#priority').val();
         var formData = new FormData(this);
         formData.append('priority', priority);
         
-        // Disable the form
         $(this).find(':input').prop('disabled', true);
         
         fetch('app/add.php', {
             method: 'POST',
             body: formData
         }).then(response => {
-            // Handle the response
             console.log(response);
-            // Reload todo list after adding a task
+
             updateTodoList();
             
-            // Clear form fields
             $(this).find(':input').val('');
             
-            // Re-enable the form
             $(this).find(':input').prop('disabled', false);
         }).catch(error => {
-            // Handle errors
             console.error('Error:', error);
             
-            // Re-enable the form
             $(this).find(':input').prop('disabled', false);
         });
     });
