@@ -15,7 +15,8 @@ I added the following functionality:
  Improved styling for the login form
  Added feature to display priority of tasks after adding them
 Fixed issue with duplicate task addition
-Implemented loading animation when tasks are being added** **Resolved issue with tasks not displaying after page reload*
+Implemented loading animation when tasks are being added
+Resolved issue with tasks not displaying after page reload*
 
 _Enhanced text animation using custom keyframe animation for main-section_
 ***get_todos.php is a PHP script responsible for fetching the list of tasks (todos) from the database and returning them as a JSON response.***
