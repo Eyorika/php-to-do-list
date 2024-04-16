@@ -1,4 +1,4 @@
-## PHP (PDO), MYSQL and JQuery AJAX Full Project from Scratch.
+PHP (PDO), MYSQL and JQuery AJAX Full Project from Scratch.
 
 
 I added the following functionality:
@@ -23,3 +23,6 @@ __Implemented basic structure and styling for the ToDo List application
 To login :
 username: admin
 password: admin**
+
+
+Credit : @codingWithElias : Thank You!!
