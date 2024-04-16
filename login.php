@@ -7,29 +7,24 @@ if(isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Check if form is submitted
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Database connection
     require 'db_conn.php';
 
-    // Get input data
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prepare SQL statement to fetch user data
     $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Verify password
     if($user && password_verify($password, $user['password'])) {
-        // Authentication successful, set session variables and redirect to index.php
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         header("Location: index.php");
         exit();
     } else {
-        // Authentication failed, display error message
         $error_message = "Invalid username or password";
     }
 }
