@@ -4,16 +4,14 @@ require 'db_conn.php';
 
 session_start();
 
-// Check if user is logged in
 if(!isset($_SESSION['user_id'])) {
-    // Redirect to login page or display login form
     header("Location: login.php");
     exit();
 }
 
 $user_id = $_SESSION['user_id'];
 
-// Add new to-do item
+
 if(isset($_POST['title'])) {
     $title = $_POST['title'];
     $priority = $_POST['priority'];
@@ -27,16 +25,12 @@ if(isset($_POST['title'])) {
     
 }
 
-// Logout functionality
 if(isset($_GET['logout'])) {
-    // Destroy the session
     session_destroy();
-    // Redirect to login page
     header("Location: login.php");
     exit();
 }
 
-// Get user's to-do items
 $stmt = $conn->prepare("SELECT * FROM todos WHERE user_id = ? ORDER BY id DESC");
 $stmt->execute([$user_id]);
 $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
